@@ -8,4 +8,6 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.view;
  */
 
 public interface LoginView {
+    void onSuccess();
+    void onError(String message);
 }
