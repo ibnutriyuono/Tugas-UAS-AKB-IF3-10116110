@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         btnLogin = (Button) findViewById(R.id.btn_login);
 
         presenter = new Login(this);
-        sharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
         final String email = sharedPreferences.getString("email", null);
         final String password = sharedPreferences.getString("password", null);
         textEditEmail.setText(email);

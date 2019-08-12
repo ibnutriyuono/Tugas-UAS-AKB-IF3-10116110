@@ -9,5 +9,5 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.view;
 
 public interface RegisterView {
     void onSuccess();
-    void onError(String errorMessage);
+    void onErrorRegister(String errorMessage);
 }

@@ -8,26 +8,29 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.presenter;
  */
 
 import com.example.k43sj.tugas_uas_akb_if3_10116110.model.RegisterUser;
-import com.example.k43sj.tugas_uas_akb_if3_10116110.model.User;
 import com.example.k43sj.tugas_uas_akb_if3_10116110.view.RegisterView;
 
 public class Register implements RegisterPresenter{
     RegisterView view;
     RegisterUser model;
 
-    @Override
-    public void onHandleRegister(String email, String password) {
+    public Register(RegisterView view) {
         this.view = view;
         this.model = new RegisterUser(this);
     }
 
     @Override
-    public void onSuccess() {
-
+    public void onHandleRegister(String email, String password, String name, String password2) {
+        model.validateRegister(email,password, name, password2);
     }
 
     @Override
-    public void onError(String message) {
+    public void onSuccess() {
+        view.onSuccess();
+    }
 
+    @Override
+    public void onErrorRegister(String message) {
+        view.onErrorRegister(message);
     }
 }

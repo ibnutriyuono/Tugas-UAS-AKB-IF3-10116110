@@ -19,19 +19,21 @@ public class RegisterUser {
     }
 
 
-    public void validateRegister(String email, String password) {
+    public void validateRegister(String email, String password, String name, String password2) {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         if(TextUtils.isEmpty(email))
-            presenter.onError("Please Enter Email");
+            presenter.onErrorRegister("Please Enter Email");
         else if(TextUtils.isEmpty(password))
-            presenter.onError("Please Enter Password");
+            presenter.onErrorRegister("Please Enter Password");
         else if(!email.trim().matches(emailPattern))
-            presenter.onError("Please enter valid email");
+            presenter.onErrorRegister("Please enter valid email");
         else if(email.length()<4)
-            presenter.onError("Email Must be at least 4 character long !");
+            presenter.onErrorRegister("Email Must be at least 4 character long !");
         else if(password.length()<6)
-            presenter.onError("Password Must be at least 4 character long !");
+            presenter.onErrorRegister("Password Must be at least 4 character long !");
+        else if(!password.equals(password2))
+            presenter.onErrorRegister("The Confirmation password confirmation doesn't match");
         else
             presenter.onSuccess();
     }

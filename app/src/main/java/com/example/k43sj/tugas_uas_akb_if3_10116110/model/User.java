@@ -29,10 +29,10 @@ public class User {
             presenter.onError("Please Enter Password");
         else if(!email.trim().matches(emailPattern))
             presenter.onError("Please enter valid email");
-//        else if(!dataUsername.equals(email))
-//            presenter.onError("Wrong Username !");
-//        else if(!dataPassword.equals(password))
-//            presenter.onError("Wrong Password !");
+        else if(!dataUsername.equals(email))
+            presenter.onError("Wrong Username !");
+        else if(!dataPassword.equals(password))
+            presenter.onError("Wrong Password !");
         else
             presenter.onSuccess();
     }
