@@ -1,26 +1,25 @@
 package com.example.k43sj.tugas_uas_akb_if3_10116110.model;
 
 /*
- * 10 Agustus 2019
+ * 12 Agustus 2019
  * 10116110
  * Muhamad Ibnu Tri Yuono
  * IF-3
  */
 
 import android.text.TextUtils;
-import android.util.Patterns;
 
-import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.LoginPresenter;
-import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.Register;
+import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.RegisterPresenter;
 
-public class User {
-    private LoginPresenter presenter;
+public class RegisterUser {
+    private RegisterPresenter presenter;
 
-    public User(LoginPresenter presenter){
+    public RegisterUser(RegisterPresenter presenter){
         this.presenter=presenter;
     }
 
-    public void validateUser(String email, String password , String dataUsername, String dataPassword) {
+
+    public void validateRegister(String email, String password) {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
         if(TextUtils.isEmpty(email))
@@ -29,11 +28,12 @@ public class User {
             presenter.onError("Please Enter Password");
         else if(!email.trim().matches(emailPattern))
             presenter.onError("Please enter valid email");
-//        else if(!dataUsername.equals(email))
-//            presenter.onError("Wrong Username !");
-//        else if(!dataPassword.equals(password))
-//            presenter.onError("Wrong Password !");
+        else if(email.length()<4)
+            presenter.onError("Email Must be at least 4 character long !");
+        else if(password.length()<6)
+            presenter.onError("Password Must be at least 4 character long !");
         else
             presenter.onSuccess();
     }
+
 }
