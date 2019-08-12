@@ -7,12 +7,17 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.model;
  * IF-3
  */
 
-public class Mahasiswa {
-    private int image;
-    private String nim,nama,kelas,telephone,email,instagram;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-    public Mahasiswa(int image, String nim, String nama, String kelas, String telephone, String email, String instagram){
-        this.image = image;
+public class Mahasiswa extends RealmObject {
+
+    @PrimaryKey
+    private int nim;
+
+    private String nama,kelas,telephone,email,instagram;
+
+    public Mahasiswa(int nim, String nama, String kelas, String telephone, String email, String instagram){
         this.nim = nim;
         this.nama = nama;
         this.kelas = kelas;
@@ -21,11 +26,7 @@ public class Mahasiswa {
         this.instagram = instagram;
     }
 
-    public int getImage() {
-        return image;
-    }
-
-    public String getNim() {
+    public int getNim() {
         return nim;
     }
 
@@ -49,11 +50,7 @@ public class Mahasiswa {
         return instagram;
     }
 
-    public void setImage(int image) {
-        this.image = image;
-    }
-
-    public void setNim(String nim) {
+    public void setNim(int nim) {
         this.nim = nim;
     }
 
