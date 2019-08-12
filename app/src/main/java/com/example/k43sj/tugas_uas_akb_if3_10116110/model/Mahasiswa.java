@@ -13,6 +13,8 @@ import io.realm.annotations.PrimaryKey;
 public class Mahasiswa extends RealmObject {
 
     @PrimaryKey
+    private int id;
+
     private int nim;
 
     private String nama,kelas,telephone,email,instagram;
@@ -24,6 +26,10 @@ public class Mahasiswa extends RealmObject {
         this.telephone = telephone;
         this.email = email;
         this.instagram = instagram;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public int getNim() {
@@ -48,6 +54,10 @@ public class Mahasiswa extends RealmObject {
 
     public String getInstagram() {
         return instagram;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNim(int nim) {
