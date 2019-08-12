@@ -8,7 +8,7 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.presenter;
  */
 
 public interface LoginPresenter {
-    void onLogin(String username, String password, String dataUser, String dataPass);
+    void onLogin(String email, String password, String dataUser, String dataPass);
     void onSuccess();
     void onError(String message);
 }

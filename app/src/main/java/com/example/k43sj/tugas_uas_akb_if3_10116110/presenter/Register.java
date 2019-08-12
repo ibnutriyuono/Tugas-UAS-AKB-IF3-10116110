@@ -7,10 +7,18 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.presenter;
  * IF-3
  */
 
-public class Register implements RegisterPresenter{
-    @Override
-    public void onHandleRegister(String username, String password) {
+import com.example.k43sj.tugas_uas_akb_if3_10116110.model.RegisterUser;
+import com.example.k43sj.tugas_uas_akb_if3_10116110.model.User;
+import com.example.k43sj.tugas_uas_akb_if3_10116110.view.RegisterView;
 
+public class Register implements RegisterPresenter{
+    RegisterView view;
+    RegisterUser model;
+
+    @Override
+    public void onHandleRegister(String email, String password) {
+        this.view = view;
+        this.model = new RegisterUser(this);
     }
 
     @Override
