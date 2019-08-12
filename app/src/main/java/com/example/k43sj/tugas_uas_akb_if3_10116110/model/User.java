@@ -7,27 +7,13 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110.model;
  * IF-3
  */
 
+import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.LoginPresenter;
+
 public class User {
     private String username, password;
+    private LoginPresenter presenter;
 
-    public User(String username, String password){
-        this.username = username;
-        this.password = password;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
+    public User(LoginPresenter presenter){
+        this.presenter=presenter;
     }
 }
