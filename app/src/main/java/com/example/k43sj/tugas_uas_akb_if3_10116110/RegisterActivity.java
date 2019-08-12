@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.Login;
-
 /*
  * 12 Agustus 2019
  * 10116110

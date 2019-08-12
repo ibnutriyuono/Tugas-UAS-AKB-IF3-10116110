@@ -21,16 +21,16 @@ public class Login implements LoginPresenter {
 
     @Override
     public void onLogin(String username, String password, String dataUser, String dataPass) {
-
+        model.validateUser(username,password,dataUser,dataPass);
     }
 
     @Override
     public void onSuccess() {
-
+        view.onSuccess();
     }
 
     @Override
     public void onError(String message) {
-
+        view.onError(message);
     }
 }
