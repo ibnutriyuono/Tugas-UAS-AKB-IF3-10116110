@@ -7,6 +7,7 @@
     <string name="nav_header_subtitle_main">ibnutriyuono23@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings_main">Settings</string>
+    <string name="action_logout_main">Logout</string>
     <string name="title_activity_data_teman">DataTemanActivity</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>

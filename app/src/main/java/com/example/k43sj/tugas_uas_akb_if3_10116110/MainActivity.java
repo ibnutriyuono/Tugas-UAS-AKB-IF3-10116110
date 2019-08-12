@@ -71,8 +71,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -90,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragment= new KontakFragment();
             getSupportActionBar().setTitle("Kontak Diri");
         } else if (id == R.id.nav_people) {
-//            Intent intent = new Intent(MainActivity.this, DataTemanActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, DataTemanActivity.class);
+            startActivity(intent);
         }
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();

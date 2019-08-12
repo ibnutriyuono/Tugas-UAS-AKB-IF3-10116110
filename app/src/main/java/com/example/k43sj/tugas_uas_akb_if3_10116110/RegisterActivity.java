@@ -5,19 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.Login;
 import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.Register;
 import com.example.k43sj.tugas_uas_akb_if3_10116110.presenter.RegisterPresenter;
 import com.example.k43sj.tugas_uas_akb_if3_10116110.view.RegisterView;
 
-import org.w3c.dom.Text;
 
 /*
  * 12 Agustus 2019
