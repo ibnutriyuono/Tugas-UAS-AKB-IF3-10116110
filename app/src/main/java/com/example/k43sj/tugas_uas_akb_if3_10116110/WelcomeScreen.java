@@ -53,7 +53,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-        btnSkip = (Button) findViewById(R.id.btn_skip);
+        btnSkip = ( Button) findViewById(R.id.btn_skip);
         btnNext = (Button) findViewById(R.id.btn_next);
 
         layouts = new int[]{
@@ -110,7 +110,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     private void launchHomeScreen() {
 //        prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeScreen.this, MainActivity.class));
+        startActivity(new Intent(WelcomeScreen.this, LoginActivity.class));
         finish();
     }
 
