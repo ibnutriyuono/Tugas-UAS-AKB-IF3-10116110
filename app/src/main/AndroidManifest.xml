@@ -3,6 +3,7 @@
     package="com.example.k43sj.tugas_uas_akb_if3_10116110">
 
     <application
+        android:name=".helper.RealmDB"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +21,9 @@
         <activity android:name=".WelcomeScreen" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".DataTemanActivity"></activity>
+        <activity android:name=".DataTemanActivity" />
+        <activity android:name=".MahasiswaActivity" />
+        <activity android:name=".DetailActivity"></activity>
     </application>
 
 </manifest>
