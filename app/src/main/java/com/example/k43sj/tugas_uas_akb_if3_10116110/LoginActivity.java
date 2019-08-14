@@ -3,6 +3,7 @@ package com.example.k43sj.tugas_uas_akb_if3_10116110;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     private TextView register;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
+    Boolean isFirstTime;
     EditText textEditEmail, textEditPassword;
     Button btnLogin;
 
@@ -67,10 +68,24 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void onSuccess() {
-        Toast.makeText(this, "Berhasil Login", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(LoginActivity.this,MainActivity.class);
-        startActivity(i);
-        finish();
+        SharedPreferences app_preferences = PreferenceManager
+                .getDefaultSharedPreferences(LoginActivity.this);
+        SharedPreferences.Editor editor = app_preferences.edit();
+        isFirstTime = app_preferences.getBoolean("isFirstTime", true);
+        if (isFirstTime) {
+            editor.putBoolean("isFirstTime", false);
+            editor.commit();
+            Toast.makeText(this, "Berhasil Login", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(i);
+            finish();
+        }else{
+            Toast.makeText(this, "Sudah Login", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(i);
+            finish();
+        }
+
     }
 
     @Override

@@ -21,8 +21,8 @@ import com.example.k43sj.tugas_uas_akb_if3_10116110.helper.RealmHelper;
  */
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etNim, etNama;
-    String nim, nama;
+    EditText etNim, etNama, etKelas, etTelepon, etEmail, etSosmed;
+    String nim, nama, email, kelas, socmed, telepon;
     Integer id;
     Button btn_ubah, btn_hapus, btn_kembali;
     RealmHelper realmHelper;
@@ -35,13 +35,17 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         // Set up
         Realm.init(this);
-        RealmConfiguration configuration = new RealmConfiguration.Builder().build();
+        RealmConfiguration configuration = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
         realm = Realm.getInstance(configuration);
         realmHelper = new RealmHelper(realm);
 
         // Inisialisasi
         etNim = findViewById(R.id.etNim);
         etNama = findViewById(R.id.etNama);
+        etEmail = findViewById(R.id.etEmail);
+        etKelas = findViewById(R.id.etKelas);
+        etTelepon = findViewById(R.id.etTelepon);
+        etSosmed = findViewById(R.id.etSosmed);
         btn_ubah = findViewById(R.id.btnUpdate);
         btn_hapus = findViewById(R.id.btnHapus);
         btn_kembali = findViewById(R.id.btnCancel);
@@ -49,9 +53,18 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         id = Integer.parseInt(getIntent().getStringExtra("id"));
         nim = getIntent().getStringExtra("nim");
         nama = getIntent().getStringExtra("nama");
+        email = getIntent().getStringExtra("email");
+        telepon = getIntent().getStringExtra("telepon");
+        socmed = getIntent().getStringExtra("socmed");
+        kelas = getIntent().getStringExtra("kelas");
 
+        Toast.makeText(this, email, Toast.LENGTH_SHORT).show();
         etNim.setText(nim);
         etNama.setText(nama);
+        etEmail.setText(email);
+        etSosmed.setText(socmed);
+        etTelepon.setText(telepon);
+        etKelas.setText(kelas);
 
         btn_kembali.setOnClickListener(this);
         btn_hapus.setOnClickListener(this);
@@ -61,10 +74,14 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if (v == btn_ubah){
-            realmHelper.update(id, Integer.parseInt(etNim.getText().toString()),etNama.getText().toString());
+            realmHelper.update(id, Integer.parseInt(etNim.getText().toString()),etNama.getText().toString(), etEmail.getText().toString(), etTelepon.getText().toString(), etKelas.getText().toString(), etSosmed.getText().toString());
             Toast.makeText(DetailActivity.this, "Update Success", Toast.LENGTH_SHORT).show();
             etNim.setText("");
             etNama.setText("");
+            etEmail.setText("");
+            etKelas.setText("");
+            etTelepon.setText("");
+            etSosmed.setText("");
             finish();
         }else if (v == btn_hapus) {
             realmHelper.delete(id);

@@ -23,8 +23,40 @@
         android:hint="Nama"
         android:inputType="textPersonName"/>
 
-    <LinearLayout
+    <EditText
         android:layout_below="@id/etNama"
+        android:id="@+id/etKelas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kelas"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:layout_below="@id/etKelas"
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:layout_below="@id/etEmail"
+        android:id="@+id/etTelepon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Telepon"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:layout_below="@id/etTelepon"
+        android:id="@+id/etSosmed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sosmed"
+        android:inputType="textPersonName"/>
+
+    <LinearLayout
+        android:layout_below="@id/etSosmed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

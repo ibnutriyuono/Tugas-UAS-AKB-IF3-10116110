@@ -39,7 +39,7 @@ public class MahasiswaActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         //setup realm
-        RealmConfiguration configuration = new RealmConfiguration.Builder().build();
+        RealmConfiguration configuration = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
         realm = Realm.getInstance(configuration);
 
         realmHelper = new RealmHelper(realm);

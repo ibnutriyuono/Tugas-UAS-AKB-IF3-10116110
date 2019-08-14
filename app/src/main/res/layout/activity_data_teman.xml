@@ -27,6 +27,34 @@
             android:hint="Masukkan Nama Mahasiswa"
             android:inputType="textPersonName"/>
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Email Mahasiswa"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/kelas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Kelas Mahasiswa"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/telepon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Nomor Telepon Mahasiswa"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/socmed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan Social Media Mahasiswa"
+            android:inputType="text"/>
+
         <Button
             android:id="@+id/btnSimpan"
             android:layout_marginTop="20dp"

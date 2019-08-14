@@ -17,12 +17,12 @@ import io.realm.RealmConfiguration;
 
 public class DataTemanActivity extends AppCompatActivity implements View.OnClickListener{
     Button btnsimpan, btntampil;
-    EditText nim,nama;
-    String snama;
+    EditText nim,nama, kelas, email, telepon, socmed;
+    String snama, skelas, stelepon, semail, ssocmed;
     Integer snim;
     Realm realm;
     RealmHelper realmHelper;
-    MahasiswaModel mahasisawaModel;
+    MahasiswaModel mahasiswaModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,12 @@ public class DataTemanActivity extends AppCompatActivity implements View.OnClick
         btntampil = findViewById(R.id.btnTampil);
         nim = findViewById(R.id.nim);
         nama = findViewById(R.id.nama);
+        kelas = findViewById(R.id.kelas);
+        email = findViewById(R.id.email);
+        telepon = findViewById(R.id.telepon);
+        socmed = findViewById(R.id.socmed);
         Realm.init(DataTemanActivity.this);
-        RealmConfiguration configuration = new RealmConfiguration.Builder().build();
+        RealmConfiguration configuration = new RealmConfiguration.Builder().deleteRealmIfMigrationNeeded().build();
         realm = Realm.getInstance(configuration);
 
         btnsimpan.setOnClickListener(this);
@@ -45,19 +49,32 @@ public class DataTemanActivity extends AppCompatActivity implements View.OnClick
         if (v == btnsimpan) {
             snim = Integer.parseInt(nim.getText().toString());
             snama = nama.getText().toString();
-
+            skelas = kelas.getText().toString();
+            semail = email.getText().toString();
+            stelepon = telepon.getText().toString();
+            ssocmed = socmed.getText().toString();
+            Toast.makeText(this, semail, Toast.LENGTH_SHORT).show();
             if (!snim.equals("") && !snama.isEmpty()) {
-                mahasisawaModel = new MahasiswaModel();
-                mahasisawaModel.setNim(snim);
-                mahasisawaModel.setNama(snama);
+
+                mahasiswaModel = new MahasiswaModel();
+                mahasiswaModel.setNim(snim);
+                mahasiswaModel.setNama(snama);
+                mahasiswaModel.setEmail(semail);
+                mahasiswaModel.setKelas(skelas);
+                mahasiswaModel.setTelepon(stelepon);
+                mahasiswaModel.setSocmed(ssocmed);
 
                 realmHelper = new RealmHelper(realm);
-                realmHelper.save(mahasisawaModel);
+                realmHelper.save(mahasiswaModel);
 
                 Toast.makeText(DataTemanActivity.this, "Berhasil Disimpan!", Toast.LENGTH_SHORT).show();
 
                 nim.setText("");
                 nama.setText("");
+                email.setText("");
+                telepon.setText("");
+                socmed.setText("");
+                kelas.setText("");
 
             } else {
                 Toast.makeText(DataTemanActivity.this, "Terdapat inputan kosong", Toast.LENGTH_SHORT).show();

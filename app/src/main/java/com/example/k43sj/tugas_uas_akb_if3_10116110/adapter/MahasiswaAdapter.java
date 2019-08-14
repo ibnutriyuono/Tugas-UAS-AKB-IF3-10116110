@@ -38,6 +38,7 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mahasiswa, parent, false);
         return new MyViewHolder(v);
     }
+
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(MahasiswaAdapter.MyViewHolder holder, int position) {
@@ -51,6 +52,10 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
                 intent.putExtra("id", model.getId().toString());
                 intent.putExtra("nim", model.getNim().toString());
                 intent.putExtra("nama", model.getNama());
+                intent.putExtra("kelas", model.getKelas());
+                intent.putExtra("telepon", model.getTelepon());
+                intent.putExtra("socmed", model.getSocmed());
+                intent.putExtra("email", model.getSocmed());
                 v.getContext().startActivity(intent);
             }
         });

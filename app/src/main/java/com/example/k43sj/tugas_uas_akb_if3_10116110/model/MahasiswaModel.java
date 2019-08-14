@@ -15,6 +15,10 @@ public class MahasiswaModel extends RealmObject {
     private Integer id;
     private Integer nim;
     private String nama;
+    private String kelas;
+    private String telepon;
+    private String email;
+    private String socmed;
 
     public Integer getId() {
         return id;
@@ -38,5 +42,37 @@ public class MahasiswaModel extends RealmObject {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getKelas() {
+        return kelas;
+    }
+
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
+    }
+
+    public String getTelepon() {
+        return telepon;
+    }
+
+    public void setTelepon(String telepon) {
+        this.telepon = telepon;
+    }
+
+    public String getSocmed() {
+        return socmed;
+    }
+
+    public void setSocmed(String socmed) {
+        this.socmed = socmed;
     }
 }

@@ -51,7 +51,7 @@ public class RealmHelper {
     }
 
     //untuk mengupdate data
-    public void update(final Integer id, final Integer nim, final String nama){
+    public void update(final Integer id, final Integer nim, final String nama,final String email, final String telepon, final String kelas, final String sosmed){
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -60,6 +60,10 @@ public class RealmHelper {
                         .findFirst();
                 model.setNim(nim);
                 model.setNama(nama);
+                model.setKelas(kelas);
+                model.setTelepon(telepon);
+                model.setSocmed(sosmed);
+                model.setEmail(email);
             }
         }, new Realm.Transaction.OnSuccess() {
             @Override

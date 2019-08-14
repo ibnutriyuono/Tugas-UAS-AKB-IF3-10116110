@@ -1,6 +1,8 @@
 package com.example.k43sj.tugas_uas_akb_if3_10116110;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.k43sj.tugas_uas_akb_if3_10116110.fragments.DataDiriFragment;
 import com.example.k43sj.tugas_uas_akb_if3_10116110.fragments.KontakFragment;
@@ -28,6 +31,8 @@ import com.example.k43sj.tugas_uas_akb_if3_10116110.fragments.KontakFragment;
  */
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_logout) {
+            SharedPreferences preferences = getSharedPreferences("isFirstTime", 0);
+            preferences.edit().remove("isFirstTime").commit();
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
