@@ -16,52 +16,53 @@ import io.realm.RealmConfiguration;
 
 
 public class DataTemanActivity extends AppCompatActivity implements View.OnClickListener{
-    Button btnSimpan, btnTampil;
-    EditText nim, nama;
-    String sNama;
-    Integer sNim;
+    Button btnsimpan, btntampil;
+    EditText nim,nama;
+    String snama;
+    Integer snim;
     Realm realm;
     RealmHelper realmHelper;
-    MahasiswaModel mahasiswaModel;
+    MahasiswaModel mahasisawaModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_teman);
-        btnSimpan = findViewById(R.id.btnSimpan);
-        btnTampil = findViewById(R.id.btnTampil);
+        btnsimpan = findViewById(R.id.btnSimpan);
+        btntampil = findViewById(R.id.btnTampil);
         nim = findViewById(R.id.nim);
         nama = findViewById(R.id.nama);
         Realm.init(DataTemanActivity.this);
         RealmConfiguration configuration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(configuration);
 
-        btnSimpan.setOnClickListener(this);
-        btnTampil.setOnClickListener(this);
+        btnsimpan.setOnClickListener(this);
+        btntampil.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == btnSimpan){
-            sNim = Integer.parseInt(nim.getText().toString());
-            sNama = nama.getText().toString();
+        if (v == btnsimpan) {
+            snim = Integer.parseInt(nim.getText().toString());
+            snama = nama.getText().toString();
 
-            if (!sNim.equals("") && !sNama.isEmpty()){
-                mahasiswaModel = new MahasiswaModel();
-                mahasiswaModel.setNim(sNim);
-                mahasiswaModel.setNama(sNama);
+            if (!snim.equals("") && !snama.isEmpty()) {
+                mahasisawaModel = new MahasiswaModel();
+                mahasisawaModel.setNim(snim);
+                mahasisawaModel.setNama(snama);
 
                 realmHelper = new RealmHelper(realm);
-                realmHelper.save(mahasiswaModel);
+                realmHelper.save(mahasisawaModel);
 
                 Toast.makeText(DataTemanActivity.this, "Berhasil Disimpan!", Toast.LENGTH_SHORT).show();
 
                 nim.setText("");
                 nama.setText("");
-            }else {
-                Toast.makeText(DataTemanActivity.this, "Terdapat inputan yang kosong", Toast.LENGTH_SHORT).show();
+
+            } else {
+                Toast.makeText(DataTemanActivity.this, "Terdapat inputan kosong", Toast.LENGTH_SHORT).show();
             }
-        }else if (v == btnTampil){
+        }else  if (v== btntampil){
             startActivity(new Intent(DataTemanActivity.this, MahasiswaActivity.class));
         }
     }

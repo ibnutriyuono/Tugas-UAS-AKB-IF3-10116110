@@ -46,7 +46,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         btn_hapus = findViewById(R.id.btnHapus);
         btn_kembali = findViewById(R.id.btnCancel);
 
-        id = Integer.valueOf(String.valueOf(getIntent().getStringExtra("id")));
+        id = Integer.parseInt(getIntent().getStringExtra("id"));
         nim = getIntent().getStringExtra("nim");
         nama = getIntent().getStringExtra("nama");
 
